@@ -13,14 +13,15 @@ class Queue:
         else:
             self.queue[self.front]=data
             self.front+=1
-            self.printqueue()
+            #self.printqueue()
+
     def delete(self):
         if self.rear==self.front:
             raise Exception('Queue Empty')
         else:
             val=self.queue[self.rear]
             self.rear+=1
-            self.printqueue()
+            #self.printqueue()
             return val
 
     @property
