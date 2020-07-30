@@ -18,7 +18,7 @@ class AList:
         2. put the content of aL[src] in dest node's next.
         3. Replace the content of aL[src] with dest node.
         4. All data prior to inserting dest node will be in the dest node's next variable.
-        5. As this is an undirected graph, do the same of src node and aL[dest].
+        5. As this is an undirected graph, do the same for src node and aL[dest].
         '''
         src_node=Graph(src)
         dest_node=Graph(dest)
