@@ -1,6 +1,6 @@
 from AdjacencyList import AList
 
-class DFS:
+class Cycle:
 
     def __init__(self) -> None:
         self.alist=None
@@ -9,16 +9,25 @@ class DFS:
         self.timer=1
         self.TimerStart=[None]*num
         self.TimerEnd=[None]*num
+        self.cycle=0
         
     def initilize(self):
         num=5
         self.alist=AList(num)
-        self.alist.insert(0,2)
-        self.alist.insert(0,3)
+        self.alist.insert(0,1)
         self.alist.insert(1,3)
-        self.alist.insert(1,4)
-        self.alist.insert(2,3)
-        self.alist.insert(3,4)
+        #self.alist.insert(3,4)
+        self.alist.insert(4,0)
+        self.alist.insert(1,2)
+        #self.alist.insert(3,4)
+
+        '''
+        g1.addEdge(1, 0); 
+        g1.addEdge(0, 2); 
+        g1.addEdge(2, 1); 
+        g1.addEdge(0, 3); 
+        g1.addEdge(3, 4); 
+        '''
 
         self.alist.print_graph()
         return num
@@ -37,6 +46,8 @@ class DFS:
             k=k.next
             if k:
                 u=k.nodeVal
+        if self.visited[u]==0:
+                self.cycle+=1
         
         self.TimerEnd[node]=self.timer
         self.timer+=1
@@ -48,7 +59,8 @@ class DFS:
             print(f'Node {i}: Start Time {self.TimerStart[i]} and End Time {self.TimerEnd[i]}')
 
 
-dfs=DFS()
+dfs=Cycle()
 dfs.DFS_Start(4)
 print()
 dfs.print_time()
+print(dfs.cycle)
